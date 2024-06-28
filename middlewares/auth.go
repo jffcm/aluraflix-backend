@@ -39,10 +39,5 @@ func AuthMiddleware() gin.HandlerFunc {
 }
 
 func isOpenRoute(path string, openRoutes map[string]bool) bool {
-	for route := range openRoutes {
-		if strings.HasPrefix(path, route) {
-			return true
-		}
-	}
-	return false
+	return openRoutes[path]
 }
